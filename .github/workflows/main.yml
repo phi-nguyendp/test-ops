@@ -21,9 +21,9 @@ jobs:
             dockerfile: auxiliary-service/Dockerfile
           - service: main-service
             dockerfile: main-api/Dockerfile
-  env:
-    DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
-    RUN_TAG: ${{ github.run_number }}
+    env:
+      DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+      RUN_TAG: ${{ github.run_number }}
     steps:
     - name: Check out code
       uses: actions/checkout@v4
