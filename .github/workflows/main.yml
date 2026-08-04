@@ -43,6 +43,8 @@ jobs:
         context: .
         file: ${{ matrix.dockerfile }}
         push: true
-        tags: ${{ env.DOCKER_USER }}/${{ matrix.service }}:${{ env.RUN_TAG }}
+        tags: |
+          ${{ env.DOCKER_USER }}/${{ matrix.service }}:${{ env.RUN_TAG }}
+          ${{ env.DOCKER_USER }}/${{ matrix.service }}:latest
         cache-from: type=gha,scope=${{ matrix.service }}
         cache-to: type=gha,mode=max,scope=${{ matrix.service }}
